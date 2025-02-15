@@ -35,6 +35,14 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### Ollama
+
+- Run Ollama server
+
+```zsh
+ollama serve
+```
+
 <!-- 5. Run API server
 
 ```zsh

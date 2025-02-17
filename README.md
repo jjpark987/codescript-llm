@@ -7,7 +7,6 @@ This repository contains the large language model for CodeScript.
 ### Prerequisites
 
 - Python 3.10+
-- MySQL server
 
 ### Installation
 
@@ -33,6 +32,14 @@ source .venv/bin/activate
 
 ```zsh
 pip install -r requirements.txt
+```
+
+### Ollama
+
+- Run Ollama server
+
+```zsh
+ollama serve
 ```
 
 <!-- 5. Run API server

@@ -7,7 +7,6 @@ This repository contains the large language model for CodeScript.
 ### Prerequisites
 
 - Python 3.10+
-- MySQL server
 
 ### Installation
 

@@ -1,12 +1,9 @@
-# from fastapi import FastAPI
-# from typing import Dict
-# from app.config import add_cors_middleware
+from fastapi import FastAPI
+from app.schemas import LLMResponse
+from app.run_deepseek import run_deepseek
 
-# app = FastAPI()
+app = FastAPI()
 
-# # Apply CORS middleware settings
-# add_cors_middleware(app)
-
-# @app.get('/')
-# async def home() -> Dict[str, str]:
-#     return {'message': 'Welcome to the CodeScript LLM'}
+@app.post('/generate_feedback', response_model=LLMResponse)
+def generate_feedback_route(problem_data: dict, user_submission: str) -> LLMResponse:
+    return run_deepseek(problem_data, user_submission)

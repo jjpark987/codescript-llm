@@ -16,88 +16,32 @@ This repository contains the large language model for CodeScript.
 git clone git@github.com:jjpark987/codescript-llm.git
 ```
 
-2. Create a virtual environment if there isn't one already
-
-```zsh
-python -m venv .venv
-```
-
-3. Activate virtual environment
-
-```zsh
-source .venv/bin/activate
-```
-
-4. Install dependencies
-
-```zsh
-pip install -r requirements.txt
-```
-
-### Ollama
-
-- Run Ollama server
+2. Download [Ollama](https://ollama.com/) and run server
 
 ```zsh
 ollama serve
 ```
 
-<!-- 5. Run API server
+3. Download DeepSeek model (for more models click [here](https://ollama.com/library/deepseek-r1:7b))
 
 ```zsh
-uvicorn app.api.main:app --host 0.0.0.0 --port 80
+ollama run deepseek-r1:7b
 ```
 
-The API should now be running at http://0.0.0.0:80. -->
-
-<!-- ## Alebmic Version Control
-
-This project uses Alembic for managing database migrations and version control. Whenever there are updates to the database models, we must create and apply a migration to ensure that the database schema remains in sync with the application’s data structures.
-
-1. Create migration
+4. Create a virtual environment if there isn't one already
 
 ```zsh
-alembic revision --autogenerate -m "Migration message"
+python -m venv .venv
 ```
 
-2. Migrate
+5. Activate virtual environment
 
 ```zsh
-alembic upgrade head
-``` -->
-
-<!-- ## Seeding Database
-
-To seed the database with:
-- 3 categories (data manipulations, combinatorics, optimizations)
-- subcategories for each category
-
-- Make sure MySQL database server is up and migrated with the latest migration
-
-- Seed database
-
-```zsh
-python -m app.database.seed
-``` -->
-
-<!-- ## Docker
-
-### Commands
-
-- Build image and create container in the foreground
-
-```zsh
-docker compose up --build
+source .venv/bin/activate
 ```
 
-- List all containers
+6. Install dependencies
 
 ```zsh
-docker ps -a
+pip install -r requirements.txt
 ```
-
-- Prune all stopped containers
-
-```zsh
-docker container prune -f
-``` -->

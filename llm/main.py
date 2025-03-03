@@ -47,13 +47,17 @@ def ask_model(prompt: str):
         print(f'❌ Error sending request to ollama client: {e}')
 
 def parse_response(response: str) -> dict:
+    if not response:
+        print('❌ Model did not give a response')
+        return
+
     analysis_match = re.search(r'Analysis:\s*(.*?)(?=\nSuggestions:)', response, re.DOTALL)
     suggestions_match = re.search(r'Suggestions:\s*(.*?)(?=\nScore:)', response, re.DOTALL)
     score_match = re.search(r'Score:\s*(\d+)', response)
 
-    analysis = analysis_match.group(1).strip() if analysis_match else None
+    analysis = analysis_match.group(1).strip() if analysis_match else ''
     suggestions = [s.strip('- ') for s in suggestions_match.group(1).strip().split("\n")] if suggestions_match else []
-    score = int(score_match.group(1)) if score_match else None
+    score = int(score_match.group(1)) if score_match else 0
 
     return {
         'analysis': analysis,

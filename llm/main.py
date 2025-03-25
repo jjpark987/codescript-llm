@@ -41,7 +41,7 @@ def create_prompt(problem: dict, submission: str) -> str:
 
 def ask_model(prompt: str):
     try:
-        response = Client().generate(model='deepseek-r1:7b', prompt=prompt)
+        response = Client().generate(model='deepseek-coder:6.7b', prompt=prompt)
         return response['response']
     except Exception as e:
         print(f'❌ Error sending request to ollama client: {e}')
